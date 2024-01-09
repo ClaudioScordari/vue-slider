@@ -31,6 +31,7 @@ createApp(
     {
         data() {
             return {
+                autoplay: null,
                 index: 0,
                 slides: [
                     {
@@ -74,7 +75,26 @@ createApp(
             },
             changeActiveThumb(i) {
                 this.index = i;
+            },
+            mouseEnter() {
+                clearInterval(this.autoplay);
+                // Svuotare l'autoplay
+                this.autoplay = null;
+            },
+            mouseLeave() {
+                this.startAutoplay();
+            },
+            startAutoplay() {
+                this.autoplay = setInterval(this.next, 1000);
+                /*
+                    Nell'interavallo metto la definizione di funnzione, non il richiamo
+                */
             }
+        },
+        // Dal momento in cui l'istanza di Vue viene "montata" a un riferimento html
+        mounted() {
+            // Faccio partire il setInterval
+            this.startAutoplay();
         }
     }
 ).mount('#app');
