@@ -71,7 +71,7 @@ createApp(
                 } else {
                     this.index = this.slides.length - 1;
                 }
-            }
+            },
         }
     }
 ).mount('#app');
