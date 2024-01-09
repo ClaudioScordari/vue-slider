@@ -30,8 +30,8 @@
                         <div @click="prev()" class="prev"></div>
                         <div @click="next()" class="next"></div>
 
-                        <div v-for="(oneThumb, indexThumb) in slides" class="thumb"
-                            :class="slides[indexThumb] == slides[index] ? 'active' : ''">
+                        <div v-for="(oneThumb, indexThumb) in slides" @click="changeActiveThumb(indexThumb)"
+                            class="thumb" :class="slides[indexThumb] == slides[index] ? 'active' : ''">
                             <img :src="slides[indexThumb].image" :alt="slides[indexThumb].title" />
                         </div>
 

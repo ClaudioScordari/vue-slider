@@ -72,6 +72,9 @@ createApp(
                     this.index = this.slides.length - 1;
                 }
             },
+            changeActiveThumb(i) {
+                this.index = i;
+            }
         }
     }
 ).mount('#app');
